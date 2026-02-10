@@ -3,6 +3,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Notas from "./screens/Notas";
 import CreateNote from "./screens/CreateNote";
 import DetailsNote from "./screens/DetailsNote";
+import doty from "./assets/Dotylogo.png";
+import { Image } from "react-native";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -12,30 +14,32 @@ export default function App() {
       <Stack.Navigator
         screenOptions={{
           headerTitleAlign: "center",
-          headerStyle: { backgroundColor: "#111827" },
-          headerTintColor: "#f8fafc",
+          headerStyle: { backgroundColor: "#ffffff" },
+          headerTintColor: "#0f172a",
           headerTitleStyle: { fontSize: 16, fontWeight: "700" },
+          headerBackTitleVisible: false,
+          headerTitle: () => (
+            <Image
+              source={doty}
+              style={{ width: 140, height: 50, resizeMode: "cover" }}
+            />
+          ),
+          headerShadowVisible: false,
         }}
       >
-        <Stack.Screen
-          name="Notas"
-          component={Notas}
-          options={{
-            title: "NOTAS",
-          }}
-        />
+        <Stack.Screen name="Tareas" component={Notas} options={{}} />
         <Stack.Screen
           name="Crear"
           component={CreateNote}
           options={{
-            title: "CREAR NOTAS",
+            title: "CREAR TEREA",
           }}
         />
         <Stack.Screen
           name="Detail"
           component={DetailsNote}
           options={{
-            title: "DETALLES NOTAS",
+            title: "DETALLES TAREA",
           }}
         />
       </Stack.Navigator>
